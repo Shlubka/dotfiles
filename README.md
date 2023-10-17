@@ -1,4 +1,4 @@
-###Hyprland rice
+# Hyprland rice
 
 ![Текст с описанием картинки](scrin/20231017_21h05m58s_grim.png)
 ![Текст с описанием картинки](scrin/20231017_21h06m02s_grim.png)
