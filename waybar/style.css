@@ -1,0 +1,127 @@
+* {
+	font-family: Ubuntu;
+  font-size: 10px;
+  min-height: 0;
+}
+#taskbar {
+  padding: 0;
+}
+#keyboard-state,
+#temperature,
+#custom-clock,
+#language,
+#cpu,
+#memory,
+#battery,
+#network{
+  margin: 3px 3px 3px 3px;
+  padding: 5px 7px 5px 7px;
+  border-radius: 100px;
+  border-width: 100px;
+  color: #120e16;
+  background-color: #2E7487;
+}
+
+#custom-alsa {
+  margin: 3px 3px 3px 3px;
+  padding: 0px 7px 0px 0px;
+  border-radius: 100px;
+  border-width: 10px;
+  color: #120e16;
+  background-color: #2E7487;
+}
+
+
+window#waybar {
+  background-color: transparent;
+  border-radius: 12px;
+  border: 10px;
+border-color: #D059C3;
+}
+
+#custom-clock {
+  font-size: 15px;
+  padding: 0px 5px 0px 5px;
+}
+
+#custom-pm {
+  margin: 3px 2px 3px 0px;
+  padding: 0px 11px 0px 11px;
+  border-radius: 100px;
+  color: #120e16;
+  background-color: #2E7487;
+}
+
+/*----WRK BUTTON-----------------*/
+#workspaces button {
+  margin: -12px;
+  color: #47BF4F;
+  transition-duration: 0.3s;
+}
+
+#workspaces button.active {
+  margin: 3px 5px 3px 5px;
+  border-radius: 100px;
+  color: #120e16;
+  background-color: #2E7487;
+  transition-duration: 0.3s;
+  animation-name: activation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+#workspaces button.active:hover {
+  background: inherit;
+  margin: 3px 20px 3px 20px;
+  border-radius: 10%;
+  color: #120e16;
+  background-color: #2E7487;
+  box-shadow: inset 0 -3px rgba(0,0,0,0);
+}
+
+#workspaces button:hover {
+  background: inherit;
+  margin: 3px 5px 3px 5px;
+  color: #2e3436;
+  background-color: #2E7487;
+  box-shadow: inset 0 -3px rgba(0,0,0,0);
+}
+
+/*----BATTERY--------------------*/
+#battery.charging {
+  color: white;
+  background-color: #26A65B;
+}
+
+#battery.warning:not(.charging) {
+  background: #f0932b;
+  color: white;
+}
+
+#battery.critical:not(.charging) {
+  background: #f53c3c;
+  color: white;
+}
+
+/*----ANIMATION------------------*/
+
+@keyframes activation{
+	0%{
+		margin: 3px 5px 3px 5px;
+        color: #120e16;
+		border-radius: 100px;
+		background-color: rgba(0, 0, 0, 0);
+		
+	}
+	50%{
+		margin: 3px 20px 3px 20px;
+		border-radius: 100px;
+        color: #120e16;
+		background-color: rgba(0, 0, 0, 0);
+	}
+	100%{
+		margin: 3px 5px 3px 5px;
+		border-radius: 100px;
+        background-color: #2E7487;
+	}
+}

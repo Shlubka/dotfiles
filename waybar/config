@@ -1,0 +1,149 @@
+{
+    "height": 2,
+    "width": 1366, // Waybar width
+    "modules-left": ["custom/clock", "hyprland/language","keyboard-state", "battery"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["tray", "network", "cpu", "temperature", "memory", "custom/alsa", "custom/pm"],
+
+"wlr/taskbar": {
+  "format": "{icon}",
+  "icon‐size": 14,
+  "icon‐theme": "Numix‐Circle",
+  "tooltip‐format": "{title}",
+  "on‐click": "activate",
+  "on‐click‐middle": "close",
+  "ignore‐list": [
+    "Alacritty"
+  ],
+  "app_ids‐mapping": {
+    "firefoxdeveloperedition": "firefox‐developer‐edition"
+  },
+  "rewrite": {
+    "Firefox Web Browser": "Firefox",
+    "Foot Server": "Terminal"
+  }
+},
+
+"keyboard-state": {
+	"numlock": true,
+	"capslock": true,
+	"format": "{name} {icon} ",
+	"format-icons": {
+		"locked": "",
+		"unlocked": ""
+	}
+},
+
+"tray": {
+	"icon-size": 21,
+    "spacing": 10
+},
+
+"cpu": {
+	"format": "  {usage}%",
+	"interval": 1
+},
+    
+"memory": {
+	"format": "  {}%",
+	"interval": 1
+},
+    
+"temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": " {icon} {temperatureC}°C ",
+    "format": " {icon} {temperatureC}°C ",
+    "format-icons": ["", "", ""],
+    "interval": 1
+},
+
+"battery": {
+    "states": {
+        // "good": 95,
+    	"warning": 20,
+    	"critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""],
+    "interval": 1
+},
+
+"battery#bat2": {
+    "bat": "BAT2"
+},
+    
+"network": {
+	// "interface": "wlp2*", // (Optional) To force the use of this interface
+	"format-wifi": " {bandwidthDownBytes} ↓ ,{bandwidthUpBytes} ↑ ",
+	"format-ethernet": "{ipaddr}/{cidr}  ",
+	"tooltip-format": "{ifname} via {gwaddr}  ",
+	"format-linked": "{ifname} (No IP)  ",
+	"format-disconnected": "  ⚠  ",
+	"format-alt": "{ifname}: {essid} {ipaddr}/{cidr}",
+	"interval": 1
+},
+
+"custom/clock":{
+	"exec": "TZ='Europe/Moscow' date +'%H:%M:%S'",
+	"on-click": "bash /home/kirill/.config/scripts/timecal.sh",
+	"interval": 1
+},
+
+"custom/alsa": {
+	"exec": "amixer get Master | sed -nre 's/.*\\[off\\].*/    /p; s/.*\\[(.*%)\\].*/    \\1/p'",
+	"on-click": "kitty --hold alsamixer",
+	"on-scroll-up": "amixer set Master 1+; pkill -x -RTMIN+11 waybar",
+	"on-scroll-down": "amixer set Master 1-; pkill -x -RTMIN+11 waybar",
+	"signal": 11,
+	"tooltip": true,
+	"interval": 1,
+},
+        
+"hyprland/workspaces": {
+	"format": "{icon}",
+	"on-scroll-up": "hyprctl dispatch workspace e+1",
+	"on-scroll-down": "hyprctl dispatch workspace e-1",
+	"on-click": "activate",
+	"all-outputs": false,
+	"format-icons": {
+		"1": "",
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "",
+		"6": "",
+		"7": "",
+		"8": "",
+		"9": "",
+		"10": "",
+	},
+	"sort-by-number": true
+},
+
+"custom/pm": {
+	"format": "",
+	"on-click": "bash /home/kirill/.config/scripts/start_powermenu.sh"
+},
+
+"hyprland/window": {
+	"format": "{}",
+	"separate-outputs": false,
+	"max-length": 20
+},
+
+"hyprland/language": {
+	"format": "Lang: {}",
+	"format-en": "US",
+	"format-ru": "RU",
+	"keyboard-name": "at-translated-set-2-keyboard",
+},
+
+}
+
