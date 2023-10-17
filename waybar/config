@@ -92,7 +92,7 @@
 
 "custom/clock":{
 	"exec": "TZ='Europe/Moscow' date +'%H:%M:%S'",
-	"on-click": "bash /home/kirill/.config/scripts/timecal.sh",
+	"on-click": "bash ~/.config/scripts/timecal.sh",
 	"interval": 1
 },
 
@@ -129,7 +129,7 @@
 
 "custom/pm": {
 	"format": "",
-	"on-click": "bash /home/kirill/.config/scripts/start_powermenu.sh"
+	"on-click": "bash ~/.config/scripts/start_powermenu.sh"
 },
 
 "hyprland/window": {
