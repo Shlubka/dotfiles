@@ -8,3 +8,5 @@
 
 if os-prober and grub do not find the windows partition, try to mount the partition with the windows bootloader and run os-prober and reconfigure grub
 
+applied software:
+fish, neofetch, kitty, nvim, hyprpaper, sway-lock-effects, pywal, wofi, waybar
